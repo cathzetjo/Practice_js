@@ -76,12 +76,37 @@
                 document.writeln("<h3>3.Напишите функцию для создания массива из случайных чисел в диапазоне от 0 до 100, \n" +
                     "размера, заданного параметром. При отсутствии параметра, функция должна формировать массив из 10 элементов.</h3>");
 
+                let size = Number(prompt("Enter size of array", "30"));
+                randomMin = 0;
+                randomMax = 100;
+
+                function getRandomNumber(min, max) {
+                    let result = Math.floor(Math.random() * ((max+1) - min)) + min;
+
+                    return result;
+
+                    document.write(result);
+                }
+
+                function arrayCreate(s) {
+                    if (s == 0) {
+                        s = 10;
+                    }
+
+                    let arr = [];
+
+                    for (let i = 0; i < s; i++) {
+                        arr[i] = getRandomNumber(randomMin, randomMax);
+                    }
+                    document.write(arr);
+                }
+                arrayCreate(size);
             }
             break;
 
         default:
 
-        document.writeln("Unknown task number");
+            document.writeln("Unknown task number");
             break;
     }
 
