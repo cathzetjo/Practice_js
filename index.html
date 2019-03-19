@@ -11,7 +11,7 @@
 <body>
     <pre>
 <script>
-    let choiseOfTask = prompt("Enter the number of Task", "5");
+    let choiseOfTask = prompt("Enter the number of Task", "6");
     switch (choiseOfTask) {
         case "1":
             {
@@ -177,20 +177,32 @@
         case "6":
             {
                 document.writeln("<h3>6.Напишите функцию, которая будет рассчитывать количество прошедших дней " +
-                    "между двумя датами: сегодняшней даты, и второй, переданной в виде параметра. \n " +
+                    "между двумя датами: сегодняшней даты, и второй, \nпереданной в виде параметра.  " +
                     "Функция должна работать только для дат прошедшего времени.</h3><\hr>");
 
+                let year = Number(prompt("Enter year", "2018"));
+                let month = Number(prompt("Enter month", "1"));
+                let day = Number(prompt("Enter day", "1"));
 
+                let dateInPast = new Date(year, month-1, day);  // months count starts from 0;
+                let dateNow = new Date();                       // return value in milliseconds
+                document.writeln("<u>Date in past:</u> " + dateInPast + "\n");
+                document.writeln("<u>Today`s date:</u> " + dateNow + "\n");
 
-
-
-
-
+                function dateCounter(date) {                   
+                    let msPerDay=1000*60*60*24;  // number of milliseconds per 1 day
+                    if (date < dateNow) {
+                        let result = (dateNow - date)/msPerDay;
+                        return parseInt(result);
+                    }
+                    return false;
+                }
+                let days = dateCounter(dateInPast);
+                document.writeln("<u>Diff in days:</u> " + days);
             }
             break;
 
-
-        case "6":
+        case "7":
             {
                 document.writeln("<h3>7.Имеется массив каких-то элементов (можно задать статически). Нужно распределить элементам" +
                     "этого массива номера от 1 в случайном порядке. Проще говоря, нужно отсортировать массив случайным образом. \n " +
