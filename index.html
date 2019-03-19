@@ -14,7 +14,7 @@
 
 <script>
 
-    let choiseOfTask = prompt("Enter the number of Task", "3");
+    let choiseOfTask = prompt("Enter the number of Task", "4");
 
     switch (choiseOfTask) {
         case "1":
@@ -81,11 +81,8 @@
                 randomMax = 100;
 
                 function getRandomNumber(min, max) {
-                    let result = Math.floor(Math.random() * ((max+1) - min)) + min;
-
+                    let result = Math.floor(Math.random() * ((max + 1) - min)) + min;
                     return result;
-
-                    document.write(result);
                 }
 
                 function arrayCreate(s) {
@@ -98,9 +95,70 @@
                     for (let i = 0; i < s; i++) {
                         arr[i] = getRandomNumber(randomMin, randomMax);
                     }
-                    document.write(arr);
+                    return arr;
                 }
-                arrayCreate(size);
+                let array = arrayCreate(size);
+
+                document.writeln(array);
+
+            }
+            break;
+
+        case "4":
+            {
+                document.writeln("<h3> 4.Разработайте алгоритм, который будет перебирать числовой массив," +
+                    "сгенерированный предыдущей функцией, и удалять из него элементы \nменьшие 6. Затем нужно посчитать" +
+                    "и вывести на консоль, сколько процентов от начального количества элементов осталось в массиве.</h3>");
+
+                let size = Number(prompt("Enter size of array", "30"));
+                randomMin = -10;
+                randomMax = 20;
+
+                function getRandomNumber(min, max) {
+                    let result = Math.floor(Math.random() * ((max + 1) - min)) + min;
+                    return result;
+
+                }
+
+                function arrayCreate(s) {
+                    if (s == 0) {
+                        s = 10;
+                    }
+
+                    let arr = [];
+
+                    for (let i = 0; i < s; i++) {
+                        arr[i] = getRandomNumber(randomMin, randomMax);
+                    }
+                    return arr;
+                }
+                let array = arrayCreate(size);
+
+                let originLength = array.length;
+
+                document.writeln("<u>Original array:</u> " + array + "\n");              
+
+
+                for (let i = 0; i < array.length; i++) {
+                    if (array[i] < 6) {
+
+                        let idx = array.indexOf(array[i]);
+                        array.splice(idx, 1);
+                        i--;
+                    }
+                }
+
+                let finalLength = array.length;
+
+                document.writeln("<u>Array '>6':</u> " + array + "\n");
+
+                // document.writeln("<u>Original array length:</u> " + originLength);
+                // document.writeln("<u>Array '>6' length:</u> " + finalLength);
+
+                let percent = parseInt(finalLength / originLength * 100);
+          
+                document.writeln("<u>In new array left:</u> " + percent+ "% of elements");
+
             }
             break;
 
