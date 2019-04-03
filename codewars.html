@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre>
+<script>
+
+
+//Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+    let string = '4556364607935616';
+
+    // return masked string
+    function maskify(cc) {
+let newString=[];
+        for (let i = 0; i < cc.length; i++) {
+            if (i < (cc.length - 4)) {
+                newString[i] = '#';
+            }
+            else {
+                newString[i] = cc[i]; 
+            }
+        }
+
+        return newString.join('');
+    }
+ let rres =  maskify(string)
+document.writeln(rres);
+
+
+
+
+</script>
+    </pre>
+</body>
+
+</html>

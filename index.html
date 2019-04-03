@@ -168,25 +168,25 @@
 
 
                 function listOfGroup(newString) {
-                    // let tempArray = newString.split(' ');
-            for (let i=0; i<newString.length; i++)
-            {
-                 if ( newString.includes(totalArray[i]))
-                 {
-                   array[i]=totalArray[i];            
-                 }
 
-                
-            }
-            return array;
+                    let count = 0;
+                    for (let i = 0, j = 0; i < newString.length; i++) {
+                        if (newString.includes(totalArray[i])) {
+                            count++;
+                            j++;
+                            array[j] = totalArray[i];
+
+                        }
+                    }
+                    return array;
                 }
 
                 let totalArray = ['Анастасия', 'Сергей', 'Иван', 'Екатерина', 'Михаил', 'Дмитрий', 'Александр', 'Денис', 'Мария', 'Станислав',
-                 'Павел', 'Ирина', 'Сергей', 'Надежда', 'Евгений'];
-               
-               let newString = "Всем привет, Анастасия, поздоровайся тоже, Сергей прийдет попозже, Иван мог бы не опаздывать, Екатерина хотела " + 
-                "не приходить, Михаил собирался уезжать, Дмитрий будет стараться, Александр возможно ушел, Денис позвонит, Мария не пришла";
-               
+                    'Павел', 'Ирина', 'Сергей', 'Надежда', 'Евгений'];
+
+                let newString = "Всем привет, Анастасия, поздоровайся тоже, Сергей прийдет попозже, Иван мог бы не опаздывать, Екатерина хотела " +
+                    "не приходить, Михаил собирался уезжать, Дмитрий будет стараться, Александр возможно ушел, Денис позвонит, Мария не пришла";
+
                 let result = listOfGroup(newString);
                 document.writeln(result);
             }
@@ -202,15 +202,15 @@
                 let month = Number(prompt("Enter month", "1"));
                 let day = Number(prompt("Enter day", "1"));
 
-                let dateInPast = new Date(year, month-1, day);  // months count starts from 0
+                let dateInPast = new Date(year, month - 1, day);  // months count starts from 0
                 let dateNow = new Date();                       // return value in milliseconds
                 document.writeln("<u>Date in past:</u> " + dateInPast + "\n");
                 document.writeln("<u>Today`s date:</u> " + dateNow + "\n");
 
-                function dateCounter(date) {                   
-                    let msPerDay=1000*60*60*24;  // number of milliseconds per 1 day
+                function dateCounter(date) {
+                    let msPerDay = 1000 * 60 * 60 * 24;  // number of milliseconds per 1 day
                     if (date < dateNow) {
-                        let result = (dateNow - date)/msPerDay;
+                        let result = (dateNow - date) / msPerDay;
                         return parseInt(result);
                     }
                     return false;
