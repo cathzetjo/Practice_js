@@ -42,40 +42,29 @@ const library = [
     libraryID: 2748
   }];
 
-function sortingIncrYear (prev, next) {
-  return prev.year-next.year;
+function sortingAuthor (a, b) {
+  if ( a.author < b.author ) return 0;
+  else return 1;
 }
 
-function sortingDeincrYear (prev, next) {
-  return next.year-prev.year;
-}
-
-function sortingIncrPages (prev, next) {
-  return prev.pages-next.pages;
-}
-
-function sortingAuthor (prev, next) {
-  if ( prev.author < next.author ) return false;
-  else return true;
-}
-
-
-let result = library.sort(sortingIncrYear);
+let result = library.sort((a,b)=>a.year-b.year);
 console.log( "\x1b[31m");
 console.info('Sorting by increasing year of publication'.toUpperCase(), "\x1b[33m");
 console.log(result);
 
 console.log( "\x1b[31m");
 console.info('Sorting by deincreasing year of publication'.toUpperCase(), "\x1b[34m");
-result = library.sort(sortingDeincrYear);
+result = library.sort((a,b)=>b.year-a.year);
 console.log(result);
 
 console.log( "\x1b[31m");
 console.info('Sorting by increasing the number of pages'.toUpperCase(), "\x1b[36m");
-result = library.sort(sortingIncrPages);
+result = library.sort((a,b)=>a.pages-b.pages);
 console.log(result);
 
 console.log( "\x1b[31m");
 console.info('Sorting by name of the author'.toUpperCase(), "\x1b[32m");
 result = library.sort(sortingAuthor);
 console.log(result);
+
+console.log( "\x1b[0m"); //colors reset
