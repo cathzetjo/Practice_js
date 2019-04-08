@@ -37,7 +37,7 @@ even = array.length - odd;
 console.log("even: ", even, "odd", odd);
 
 for (let i = 0; i < odd; i++) {
-  let position = array.indexOf(array.find(item => (item & 1)));    //find position of the first odd number in array
+  let position = array.findIndex(item => (item & 1));    //find position of the first odd number in array
   array.splice(position, 1);      //delete first even number in array
 }
 
