@@ -15,7 +15,7 @@ function addEngine(obj) {
     weight: 150,
     power: 210
   };
-  return this;
+  return obj;
 }
 
 function addBattery(obj) {
@@ -25,7 +25,7 @@ function addBattery(obj) {
     energy: 24.5,
     mass: 267
   };
-  return this;
+  return obj;
 }
 
 function addController(obj) {
@@ -36,7 +36,7 @@ function addController(obj) {
     voltage: "8-425 Volts",
     prechargeCircuit: true
   };
-  return this;
+  return obj;
 }
 
 function addCharger(obj) {
@@ -46,7 +46,7 @@ function addCharger(obj) {
     power: 1.275,
     voltage: "8-425 Volts"
   };
-  return this;
+  return obj;
 }
 
 function addConverter(obj) {
@@ -56,7 +56,7 @@ function addConverter(obj) {
     outputCurrent: "0-30 Amps / 12 volts",
     isolated: "Selectabel"
   };
-  return this;
+  return obj;
 }
 
 function addWheels(obj) {
@@ -67,7 +67,7 @@ function addWheels(obj) {
     tire: "265/45-R20",
     size: "20/20"
   };
-  return this;
+  return obj;
 }
 
 function addBody(obj) {
@@ -78,7 +78,7 @@ function addBody(obj) {
     bumper: "S3E6-7",
     interior: "black"
   };
-  return this;
+  return obj;
 }
 
 function manufactureCar_sep(obj) {
@@ -93,26 +93,20 @@ function manufactureCar_sep(obj) {
 }
 
 function manufactureCar_chain(obj) {
-  return addBattery(addController(addCharger(addConverter(addWheels(addBody(obj))))));
+  return addEngine(addBattery(addController(addCharger(addConverter(addWheels(addBody(obj)))))));
 }
 
-/*manufactureCar_chain(objectCar);
-
 let Factory = {
-  manufactureCar: manufactureCar_sep
-};*/
+  manufactureCar: manufactureCar_chain
+};
 
 let Car = {};
-/*Factory.manufactureCar(Car);
-console.log("\x1b[34m", Car);*/
-
-
-console.log(manufactureCar_chain(Car));
-
+Factory.manufactureCar(Car);
+console.log("\x1b[34m", Car);
 
 /*let newCar = {};
 Factory.manufactureCar(newCar);
-newCar.engine.outputCurrent="WTF";
+newCar.engine.power = "Girls power!";
 console.log("\x1b[33m", newCar);*/
 
 
