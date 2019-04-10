@@ -92,21 +92,23 @@ function manufactureCar_sep(obj) {
   return obj;
 }
 
-/*
 function manufactureCar_chain(obj) {
-  obj.addBattery().addController().addCharger().addConverter().addWheels().addBody();
+  return addBattery(addController(addCharger(addConverter(addWheels(addBody(obj))))));
 }
 
-manufactureCar_chain(objectCar);
-*/
+/*manufactureCar_chain(objectCar);
 
 let Factory = {
   manufactureCar: manufactureCar_sep
-};
+};*/
 
 let Car = {};
-Factory.manufactureCar(Car);
-console.log("\x1b[34m", Car);
+/*Factory.manufactureCar(Car);
+console.log("\x1b[34m", Car);*/
+
+
+console.log(manufactureCar_chain(Car));
+
 
 /*let newCar = {};
 Factory.manufactureCar(newCar);
